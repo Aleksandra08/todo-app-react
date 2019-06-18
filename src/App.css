@@ -116,8 +116,8 @@ body {
     transition: color 0.4s;
 }
 
-.todo-list li .destroy {
-    display: none;
+.destroy {
+    /*display: none;*/
     position: absolute;
     top: 0;
     right: 10px;
@@ -129,6 +129,9 @@ body {
     color: #cc9a9a;
     margin-bottom: 11px;
     transition: color 0.2s ease-out;
+}
+.destroy:after {
+    content: '×';
 }
 
 button {
@@ -142,4 +145,7 @@ button {
     font-weight: inherit;
     color: inherit;
     appearance: none;
+}
+.item{
+    padding: 20px;
 }
