@@ -4,7 +4,6 @@ export default class Header extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            itemsList: [],
             value: ''
         };
 
@@ -13,7 +12,6 @@ export default class Header extends React.Component {
         };
 
         this.handleSubmit = (event) => {
-            console.log('Data item:' + this.state.value);
             event.preventDefault();
             this.props.addItem(this.state.value);
             this.setState({
@@ -37,7 +35,6 @@ export default class Header extends React.Component {
                     />
                 </form>
             </header>
-
         )
     }
 
