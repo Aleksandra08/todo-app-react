@@ -10,38 +10,45 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            itemsList: []
+            itemsList: [],
         }
     }
 
-    changeItem = (item) => {
-        console.log("Checked", item)
+    changeItem = (id) => {
+        const todos = [...this.state.itemsList];
+        const index = todos.findIndex((item) => item.id === id);
+        todos[index] = {
+            ...todos[index],
+            completed: !todos[index].completed
+        };
+        this.setState({itemsList: todos})
     };
 
-    addItem = (item) => { // Просьба подсказать, как в таком случае создавать элементы у которых можно задать свой id,
-        // и остальные флаги с помощью которых смогу далее реализовать все остальные методы. В этом методе не получается(
-        // Так как изначально не продумала всю архитектуру приложения, теперь на каждом шагу все ломаю((
-        if (!item) {
-            return
-        }
-        this.setState((prev) => {
-                return {
-                    itemsList: [
-                        ...prev.itemsList,
-                        item
-                    ]
-                }
+    addItem = (item) => {
+        if (!item) return;
+        const todoItem = {
+            id: Date.now(),
+            title: item,
+            completed: false
+        };
+        this.setState((prev) => ({
+                itemsList: [
+                    ...prev.itemsList,
+                    todoItem
+                ]
             }
-        )
+        ))
     };
 
-    removeItem = (item) => {
+    removeItem = (id) => {
         this.setState((prev) => {
-                let copyList = [...prev.itemsList];
-                copyList.splice(item, 1);
-                return {itemsList: copyList};
+            let copyList = [...prev.itemsList];
+            copyList.splice(id, 1);
+            return {
+                itemsList:
+                    prev.itemsList.filter((item) => item.id !== id)
             }
-        )
+        })
     };
 
     render() {

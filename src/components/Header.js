@@ -18,11 +18,10 @@ export default class Header extends React.Component {
                 value: ''
             })
         }
-
     }
 
     render() {
-        return (
+      return (
             <header className='header'>
                 <h1>todos</h1>
                 <form onSubmit={this.handleSubmit}>
