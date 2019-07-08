@@ -6,9 +6,9 @@ import Footer from "./components/Footer";
 
 
 const FIELD = {
-  all: 1,
-  active: 2,
-  completed: 3
+  all: 'all',
+  active: 'active',
+  completed: 'completed'
 };
 
 class App extends React.Component {
