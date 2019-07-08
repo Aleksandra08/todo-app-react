@@ -94,21 +94,25 @@ class App extends React.Component {
   render() {
     const filteredItems = this.onFilter(this.state.filterBy);
     return (
-      <div className="todoapp">
-        <Header addItem={this.addItem}/>
-        <Main
-          items={filteredItems}
-          removeItem={this.removeItem}
-          change={this.changeItem}
-          checkedAllItems={this.checkedAllItems}
-        />
-        <Footer
-          count={filteredItems.length}
-          filterItems={this.changeFilterBy}
-          filterField={FIELD}
-          showCurrentList={this.state.filterBy}
-        />
-      </div>
+      <>
+        <div className="todoapp">
+          <Header addItem={this.addItem}/>
+          <Main
+            items={filteredItems}
+            removeItem={this.removeItem}
+            change={this.changeItem}
+            checkedAllItems={this.checkedAllItems}
+          />
+          <Footer
+            count={filteredItems.length}
+            filterItems={this.changeFilterBy}
+            filterField={FIELD}
+            showCurrentList={this.state.filterBy}
+          />
+        </div>
+        <div className="footer__link">Created by <a href={'https://github.com/Aleksandra08'}>Oleksandra Starodub</a>
+        </div>
+      </>
     )
   }
 }

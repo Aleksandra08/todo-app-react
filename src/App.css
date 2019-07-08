@@ -213,6 +213,19 @@ button {
 .footer__filter li a.selected {
   border-color: rgba(175, 47, 47, .2);
 }
-.todo-count strong{
+
+.todo-count strong {
   margin: 5px;
+}
+
+.footer__link {
+  display: flex;
+  justify-content: center;
+}
+
+.footer__link a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #af5b5e;
+  margin: 0 10px;
 }
